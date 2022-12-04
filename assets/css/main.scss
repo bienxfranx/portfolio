@@ -1,0 +1,114 @@
+@import 'fonts';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+ 
+.container-hf{
+    max-width: 1728px;
+    width: 90%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.container{
+    max-width: 1200px;
+    width: 90%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    .nav-items{
+        display: flex;
+        gap: 24px;
+        a{
+            font-size: 19px;
+            color: #435060;
+            position: relative;
+            font-family: GOTHIC;
+            &.active{
+                color: #B99F6E;
+                font-style: italic;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 10px;
+                    top: -7px;
+                    left: -10px;
+                    background-color: #B99F6E;
+                }
+            }
+        }
+    }
+    .talk-btn{
+        button{
+            padding: 15px 35px;
+            color: #fff;
+            font-size: 19px;
+            border: none;
+            background-color: #B99F6E;
+            font-family: GOTHICBI;
+            cursor: pointer;
+        }
+    }
+}
+
+.footer-wrapper{
+    background-color: #435060;
+    .container-hf{
+        padding: 80px 0;
+        display: flex;
+        gap: 20px;
+        .right-f{
+            img{
+                width: 80%;
+            }
+        }
+        .left-f{
+            h2{
+                font-size: 68px;
+                margin-bottom: 60px;
+                color: #B99F6E;
+                font-family: GOTHICB;
+            }
+            .links-f{
+                display: grid;
+                grid-template-columns: 350px 350px;
+                grid-row: auto auto;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+                .link{
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    font-size: 19px;
+                    font-weight: 600;
+                    color: #fff;
+                    font-family: GOTHICB;
+                    letter-spacing: 1.5px;
+                    &.send-msg-btn{
+                        border: none;
+                        background-color: #B99F6E;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+}
