@@ -5,7 +5,7 @@
                 <img src="/images/footerR.png" alt="">
             </div>
             <div class="left-f">
-                <h2>CONTACT</h2>
+                <h2 class="title-ov">CONTACT</h2>
                 <div class="links-f">
                     <p class="link">
                         <span>

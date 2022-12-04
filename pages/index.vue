@@ -45,25 +45,61 @@
         <div class="skills-list">
           <div class="skill-item">
             <p>Adobe Photoshop <span>85%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
           <div class="skill-item">
             <p>Adobe XD <span>85%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
           <div class="skill-item">
             <p>Adobe Illustrator <span>85%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
           <div class="skill-item">
             <p>Figma <span>85%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
           <div class="skill-item">
             <p>Adobe After Effects <span>75%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
           <div class="skill-item">
             <p> Canva <span>80%</span></p>
+            <div class="progress-bar-wrapper">
+              <div class="prog-bar"></div>
+            </div>
           </div>
         </div>
         <div class="skills-icons">
-          
+          <div class="skill-list" v-for="(skill, i) in skills" :key="i">
+            <img :src="skill.img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="works-section">
+      <div class="container">
+        <h2 class="title-ov">WORKS</h2>
+        <div class="tab-navs">
+          <div class="tab" v-for="(tab, i) in tabs" :key="i">
+            <p>{{tab.nav}}</p>
+          </div>
+          <div class="tab-info">
+              <div class="proj-list">
+                <img src="" alt="">
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -74,5 +110,131 @@
 export default {
   name: 'IndexPage',
   layouts: "default",
+  data(){
+    return{
+      skills: [
+        {
+          img: '/images/Vector.png'
+        },
+        {
+          img: '/images/Group 206.svg'
+        },
+        {
+          img: '/images/Component 1.svg'
+        },
+        {
+          img: '/images/Group 207.svg'
+        },
+        {
+          img: '/images/Group 228.svg'
+        },
+        {
+          img: '/images/Group 209.svg'
+        },
+      ],
+      tabs:[
+        {
+          nav: 'Logo',
+          images:[
+            {
+              img: '/images/yes.png'
+            },
+            {
+              img: '/images/yes2.png'
+            },
+            {
+              img: '/images/yes3.png'
+            },
+            {
+              img: '/images/yes4.png'
+            },
+            {
+              img: '/images/yes5.png'
+            },
+          ]
+        },
+        {
+          nav: 'Poster/Banner',
+          images:[
+            {
+              img: '/images/yes.png'
+            },
+            {
+              img: '/images/yes2.png'
+            },
+            {
+              img: '/images/yes3.png'
+            },
+            {
+              img: '/images/yes4.png'
+            },
+            {
+              img: '/images/yes5.png'
+            },
+          ]
+        },
+        {
+          nav: 'Website',
+          images:[
+            {
+              img: '/images/yes.png'
+            },
+            {
+              img: '/images/yes2.png'
+            },
+            {
+              img: '/images/yes3.png'
+            },
+            {
+              img: '/images/yes4.png'
+            },
+            {
+              img: '/images/yes5.png'
+            },
+          ]
+        },
+        {
+          nav: 'Animation',
+          images:[
+            {
+              img: '/images/yes.png'
+            },
+            {
+              img: '/images/yes2.png'
+            },
+            {
+              img: '/images/yes3.png'
+            },
+            {
+              img: '/images/yes4.png'
+            },
+            {
+              img: '/images/yes5.png'
+            },
+          ]
+        },
+        {
+          nav: 'Video Editing',
+          images:[
+            {
+              img: '/images/yes.png'
+            },
+            {
+              img: '/images/yes2.png'
+            },
+            {
+              img: '/images/yes3.png'
+            },
+            {
+              img: '/images/yes4.png'
+            },
+            {
+              img: '/images/yes5.png'
+            },
+          ]
+        },
+      ]
+    }
+  }
 }
 </script>

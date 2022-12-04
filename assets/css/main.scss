@@ -24,6 +24,16 @@ a{
     margin: 0 auto;
 }
 
+.title-ov{
+    font-size: 68px;
+    margin-bottom: 80px;
+    color: #B99F6E;
+    font-family: GOTHICB;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
 .navigation{
     display: flex;
     justify-content: space-between;
@@ -83,6 +93,7 @@ a{
                 margin-bottom: 60px;
                 color: #B99F6E;
                 font-family: GOTHICB;
+                text-align: left;
             }
             .links-f{
                 display: grid;
@@ -109,6 +120,98 @@ a{
                     }
                 }
             }
+        }
+    }
+}
+
+
+.about-section{
+    background-color: #E8E8E8;
+    padding: 120px 0;
+   .container{
+        h2{
+            text-shadow: #E8E8E8 2.5px 3px 0px, #B99F6E 3px 4px 0px;
+        }
+        .about-descs{
+            display: flex;
+            gap: 80px;
+            justify-content: space-between;
+            margin-top: 35px;
+            .left-text, .right-text{
+                flex: 1;
+                p{
+                    font-family: GOTHIC;
+                    font-size: 19px;
+                    line-height: 25px;
+                    margin-bottom: 25px;
+                    color: #435060;
+                }
+            }
+        }
+   } 
+}
+
+
+.skills-section{
+    background-color: #435060;
+    padding: 120px 0;
+    .container{
+        h2{
+            text-shadow: #435060 2.5px 3px 0px, #B99F6E 3px 4px 0px;
+        }
+      .skills-list{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 475px));
+        gap: 60px;
+        justify-content: space-between;
+        margin-bottom: 65px;
+        .skill-item{
+            p{
+                display: flex;
+                justify-content: space-between;
+                font-family: GOTHICB;
+                font-size: 28px;
+                line-height: 32px;
+                color: #fff;
+                letter-spacing: 1.5px;
+                margin-bottom: 15px;
+                span{
+                    font-style: italic;
+                }
+            }
+            .progress-bar-wrapper{
+                height: 25px;
+                width: 100%;
+                border-radius: 15px;
+                border: 1px solid #fff;
+                position: relative;
+                .prog-bar{
+                    width: 85%;
+                    height: 25px;
+                    background-color: #B99F6E;
+                    border-radius: 15px;
+                    position: absolute;
+                    top: -1px;
+                    left: -1px;
+                }
+            }
+        }
+      }
+      .skills-icons{
+        display: flex;
+        gap: 15px;
+        justify-content: end;
+      }  
+    }
+}
+
+.works-section{
+    padding: 120px 0;
+    background-color: #E8E8E8;
+    .container{
+        h2{
+           color: #435060; 
+           text-shadow: #E8E8E8 2.5px 3px 0px, #435060 3px 4px 0px;
         }
     }
 }
