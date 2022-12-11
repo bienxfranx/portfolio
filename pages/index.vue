@@ -1,16 +1,21 @@
 <template>
-  <div>
+  <div class="bg-img">
     <div class="intro-section">
       <div class="container">
         <div class="left-intro-con">
-          <div class="into-">
-            <h1><span>Hello, I’m</span><br/>
+          <div class="intro">
+            <span>Hello, I’m</span><br/>
+            <h1>
               CRISTINA
             </h1>
             <p>I am a Graphic Designer, I love making a simple & classy touch website design but my first priority will be your satisfaction & I love what I do.</p>
           </div>
           <div class="social-contact">
             <div class="sc-links">
+              <div class="social-wrapper" v-for="(icon, i) in socialLinks" :key="i">
+                <img :src="icon.icon" :alt="icon.title" class="icon">
+                <a href="#" class="emails" target="_blank">{{icon.email}}</a>
+              </div>
             </div>
           </div>
         </div>
@@ -93,16 +98,23 @@
         <h2 class="title-ov">WORKS</h2>
         <div class="tab-navs">
           <div class="tab" v-for="(tab, i) in tabs" :key="i">
-            <p>{{tab.nav}}</p>
+            <p :class="isActive == i ? 'active':''" @click="openTab(i)">{{tab.nav}}</p>
           </div>
-          <div class="tab-info">
-              <div class="proj-list">
-                <img src="" alt="">
-              </div>
+        </div>
+        <div class="tab-info" >
+          <div class="proj-list" v-for="(tab, i) in tabs" :key="i" :class="isActive == i ? 'active':''">
+            <div v-for="(img, i) in tab.images" :key="i">
+              <img :src="img.img" alt="" @click="modal(img)">
             </div>
+          </div>
         </div>
       </div>
     </div>
+    <modal name="popup" width="1200px" height="600px" :adaptive="true">
+       <div class="popup-img">
+        <img :src="popImg.full">
+       </div>
+    </modal>
   </div>
 </template>
 
@@ -137,19 +149,24 @@ export default {
           nav: 'Logo',
           images:[
             {
-              img: '/images/yes.png'
+              img: '/images/yes.png',
+              full: '/images/big1.png'
             },
             {
-              img: '/images/yes2.png'
+              img: '/images/yes2.png',
+              full: '/images/big2.png'
             },
             {
-              img: '/images/yes3.png'
+              img: '/images/yes3.png',
+              full: '/images/big3.png'
             },
             {
-              img: '/images/yes4.png'
+              img: '/images/yes4.png',
+              full: '/images/big4.png'
             },
             {
-              img: '/images/yes5.png'
+              img: '/images/yes5.png',
+              full: '/images/big5.png'
             },
           ]
         },
@@ -157,19 +174,24 @@ export default {
           nav: 'Poster/Banner',
           images:[
             {
-              img: '/images/yes.png'
+              img: '/images/yes.png',
+              full: '/images/big1.png'
             },
             {
-              img: '/images/yes2.png'
+              img: '/images/yes2.png',
+              full: '/images/big2.png'
             },
             {
-              img: '/images/yes3.png'
+              img: '/images/yes3.png',
+              full: '/images/big3.png'
             },
             {
-              img: '/images/yes4.png'
+              img: '/images/yes4.png',
+              full: '/images/big4.png'
             },
             {
-              img: '/images/yes5.png'
+              img: '/images/yes5.png',
+              full: '/images/big5.png'
             },
           ]
         },
@@ -177,19 +199,24 @@ export default {
           nav: 'Website',
           images:[
             {
-              img: '/images/yes.png'
+              img: '/images/yes.png',
+              full: '/images/big1.png'
             },
             {
-              img: '/images/yes2.png'
+              img: '/images/yes2.png',
+              full: '/images/big2.png'
             },
             {
-              img: '/images/yes3.png'
+              img: '/images/yes3.png',
+              full: '/images/big3.png'
             },
             {
-              img: '/images/yes4.png'
+              img: '/images/yes4.png',
+              full: '/images/big4.png'
             },
             {
-              img: '/images/yes5.png'
+              img: '/images/yes5.png',
+              full: '/images/big5.png'
             },
           ]
         },
@@ -197,19 +224,24 @@ export default {
           nav: 'Animation',
           images:[
             {
-              img: '/images/yes.png'
+              img: '/images/yes.png',
+              full: '/images/big1.png'
             },
             {
-              img: '/images/yes2.png'
+              img: '/images/yes2.png',
+              full: '/images/big2.png'
             },
             {
-              img: '/images/yes3.png'
+              img: '/images/yes3.png',
+              full: '/images/big3.png'
             },
             {
-              img: '/images/yes4.png'
+              img: '/images/yes4.png',
+              full: '/images/big4.png'
             },
             {
-              img: '/images/yes5.png'
+              img: '/images/yes5.png',
+              full: '/images/big5.png'
             },
           ]
         },
@@ -217,24 +249,62 @@ export default {
           nav: 'Video Editing',
           images:[
             {
-              img: '/images/yes.png'
+              img: '/images/yes.png',
+              full: '/images/big1.png'
             },
             {
-              img: '/images/yes2.png'
+              img: '/images/yes2.png',
+              full: '/images/big12.png'
             },
             {
-              img: '/images/yes3.png'
+              img: '/images/yes3.png',
+              full: '/images/big3.png'
             },
             {
-              img: '/images/yes4.png'
+              img: '/images/yes4.png',
+              full: '/images/big4.png'
             },
             {
-              img: '/images/yes5.png'
+              img: '/images/yes5.png',
+              full: '/images/big5.png'
             },
           ]
         },
+      ],
+      isActive: '',
+      popImg:{},
+      socialLinks:[
+        {
+          title: 'gmail',
+          email: 'gvisionld@gmail.com',
+          icon: '/images/email.png'
+        },
+        {
+          title: 'behance',
+          email: 'gvisionld@gmail.com',
+          icon: '/images/Be.png'
+        },
+        {
+          title: 'dribble',
+          email: 'gvisionld@gmail.com',
+          icon: '/images/dribble.png'
+        },
+        {
+          title: 'fb',
+          email: 'gvisionld@gmail.com',
+          icon: '/images/fb.png'
+        },
       ]
     }
-  }
+  },
+  methods:{
+    openTab(val){
+      this.isActive = val
+    },
+    modal(val){
+      this.popImg = val
+      this.$modal.show('popup')
+    }
+  },
 }
 </script>
