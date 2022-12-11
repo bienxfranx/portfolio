@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-img">
+  <div class="inner-bg-img">
     <div class="intro-section">
       <div class="container">
         <div class="left-intro-con">
@@ -12,9 +12,9 @@
           </div>
           <div class="social-contact">
             <div class="sc-links">
-              <div class="social-wrapper" v-for="(icon, i) in socialLinks" :key="i">
+              <div class="social-wrapper" v-for="(icon, i) in socialLinks" :key="i" @mouseenter="showingSocMed(i)">
                 <img :src="icon.icon" :alt="icon.title" class="icon">
-                <a href="#" class="emails" target="_blank">{{icon.email}}</a>
+                <a href="#" class="emails" target="_blank" :class="isSocMed == i ? 'active' : ''">{{icon.email}}</a>
               </div>
             </div>
           </div>
@@ -294,7 +294,9 @@ export default {
           email: 'gvisionld@gmail.com',
           icon: '/images/fb.png'
         },
-      ]
+      ],
+      showSocMed: false,
+      isSocMed: '',
     }
   },
   methods:{
@@ -304,6 +306,9 @@ export default {
     modal(val){
       this.popImg = val
       this.$modal.show('popup')
+    },
+    showingSocMed(val){
+      this.isSocMed = val
     }
   },
 }

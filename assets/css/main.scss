@@ -9,6 +9,54 @@
 a{
     text-decoration: none;
 }
+
+.bg-images{
+    position: relative;
+    background-color: #E0E3EB;
+    background-image: url(~/static/images/BGlogo.svg);
+    background-repeat: no-repeat;
+    background-position-y: 45px;
+    &::before{
+        content: '';
+        background-image: url(~/static/images/Bg-photo.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: 750px;
+        background-position-x: 603px;
+        background-position-y: 94px;
+    }
+    &::after{
+        content: '';
+        background-image: url(~/static/images/3Ditem3.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        display: block;
+        width: 75px;
+        height: 75px;
+        top: 600px;
+        right: 30px;
+    }
+}
+
+.inner-bg-img{
+    background-image: url(~/static/images/3Ditem1.svg);
+    background-repeat: no-repeat;
+    display: block;
+    background-position-x: 670px;
+    background-position-y: 111px;
+    &::before{
+        content: '';
+        background-image: url(~/static/images/3Ditem2.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 75px;
+        height: 75px;
+        top: 200px;
+        right: 30px;
+    }
+}
  
 .container-hf{
     max-width: 1728px;
@@ -34,44 +82,49 @@ a{
     letter-spacing: 5px;
 }
 
-.navigation{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    .nav-items{
+.outer-nav{
+    .navigation{
         display: flex;
-        gap: 24px;
-        a{
-            font-size: 19px;
-            color: #435060;
-            position: relative;
-            font-family: GOTHIC;
-            &.active{
-                color: #B99F6E;
-                font-style: italic;
-                &::before{
-                    content: "";
-                    position: absolute;
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 10px;
-                    top: -7px;
-                    left: -10px;
-                    background-color: #B99F6E;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        .nav-items{
+            display: flex;
+            gap: 24px;
+            a{
+                font-size: 19px;
+                color: #435060;
+                position: relative;
+                font-family: GOTHIC;
+                &.active{
+                    color: #B99F6E;
+                    font-style: italic;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 10px;
+                        top: -7px;
+                        left: -10px;
+                        background-color: #B99F6E;
+                    }
+                }
+                &:hover{
+                    color: #B99F6E;
                 }
             }
         }
-    }
-    .talk-btn{
-        button{
-            padding: 15px 35px;
-            color: #fff;
-            font-size: 19px;
-            border: none;
-            background-color: #B99F6E;
-            font-family: GOTHICBI;
-            cursor: pointer;
+        .talk-btn{
+            button{
+                padding: 15px 35px;
+                color: #fff;
+                font-size: 19px;
+                border: none;
+                background-color: #B99F6E;
+                font-family: GOTHICBI;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -128,6 +181,7 @@ a{
 .about-section{
     background-color: #E8E8E8;
     padding: 120px 0;
+    position: relative;
    .container{
         h2{
             text-shadow: #E8E8E8 2.5px 3px 0px, #B99F6E 3px 4px 0px;
@@ -148,7 +202,21 @@ a{
                 }
             }
         }
-   } 
+   }
+   &::after{
+    content: '';
+    // font-size: 80px;
+    // font-family: FRAHV;
+    // text-align: center;
+    // background: #FFFAFA;
+    // background: linear-gradient(to top, #FFFAFA 23%, transparent 97%);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+   }
 }
 
 
@@ -217,6 +285,7 @@ a{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             .tab{
                 flex: 1;
                 p{
@@ -256,27 +325,30 @@ a{
 
 
 .intro-section{
-    height: 1200px;
+    height: 800px;
     .container{
         height: 100%;
         .left-intro-con{
             // background-image: url(~/static/images/photo.png);
             background-repeat: no-repeat;
-            background-position: right;
-            background-size: 700px;
+            background-position: 624px 41px;
+            background-size: 592px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 290px;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
             .intro{
                 width: 50%;
                 margin-right: auto;
                 span{
                     font-family: GOTHIC;
                     font-size: 36px;
-                    margin-bottom: 30px;
                     color: #435060;
                     font-style: italic;
+                    display: block;
                 }
                 h1{
                     font-family: FRAHV;
@@ -292,8 +364,10 @@ a{
                     color: #435060;
                 }
             }
+           
         }
     }
+    
 }
 
 .popup-img{
@@ -327,21 +401,29 @@ a{
             a{
                 background-color: #E8E8E8;
                 color: #B99F6E;
-                padding: 10px 35px;
+                padding: 15px 35px;
                 position: absolute;
                 top: 70px;
                 left: -15px;
                 font-family: GOTHIC;
                 font-size: 19px;
+                display: none;
+                box-shadow: 2px 7px 13px 4px rgba(82,81,81,0.28);
+                -webkit-box-shadow: 2px 7px 13px 4px rgba(82,81,81,0.28);
+                -moz-box-shadow: 2px 7px 13px 4px rgba(82,81,81,0.28);
                 &::before{
                     content: '';
                     position: absolute;
                     top: -24px;
-                    left: 11px;
+                    left: 20px;
                     height: 0;
                     border-left: 19px solid transparent;
                     border-right: 19px solid transparent;
                     border-bottom: 25px solid #E8E8E8;
+                   
+                }
+                &.active{
+                    display: block;
                 }
             }
             &.active{
