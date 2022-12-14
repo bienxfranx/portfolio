@@ -1,6 +1,6 @@
 <template>
   <div class="inner-bg-img">
-    <div class="intro-section">
+    <div class="intro-section per-section" id="Home">
       <div class="container">
         <div class="left-intro-con">
           <div class="intro">
@@ -14,7 +14,7 @@
             <div class="sc-links">
               <div class="social-wrapper" v-for="(icon, i) in socialLinks" :key="i" @mouseenter="showingSocMed(i)">
                 <img :src="icon.icon" :alt="icon.title" class="icon">
-                <a href="#" class="emails" target="_blank" :class="isSocMed == i ? 'active' : ''">{{icon.email}}</a>
+                <a v-if="icon.links" href="#" class="emails" target="_blank" :class="isSocMed == i ? 'active' : ''">{{icon.email}}</a>
               </div>
             </div>
           </div>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="about-section">
+    <div class="about-section per-section" id="About">
       <div class="container">
         <h2 class="title-ov">ABOUT ME</h2>
         <div class="about-descs">
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="skills-section">
+    <div class="skills-section per-section" id="Skills">
       <div class="container">
         <h2 class="title-ov">Skills</h2>
         <div class="skills-list">
@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <div class="works-section">
+    <div class="works-section per-section" id="Works">
       <div class="container">
         <h2 class="title-ov">WORKS</h2>
         <div class="tab-navs">
@@ -104,7 +104,8 @@
         <div class="tab-info" >
           <div class="proj-list" v-for="(tab, i) in tabs" :key="i" :class="isActive == i ? 'active':''">
             <div v-for="(img, i) in tab.images" :key="i">
-              <img :src="img.img" alt="" @click="modal(img)">
+              <img :src="img.img" alt="" @click="modal(img)" v-if="img.tag == 0">
+              <iframe :src="img.img" frameborder="0" v-if="img.tag == 1"></iframe>
             </div>
           </div>
         </div>
@@ -147,6 +148,7 @@ export default {
       tabs:[
         {
           nav: 'Logo',
+          tag: 0,
           images:[
             {
               img: '/images/yes.png',
@@ -172,102 +174,83 @@ export default {
         },
         {
           nav: 'Poster/Banner',
+          tag: 0,
           images:[
             {
-              img: '/images/yes.png',
-              full: '/images/big1.png'
+              img: '/images/Introducing-Khephren-staking-platform.jpg',
+              full: '/images/Introducing-Khephren-staking-platform.jpg'
             },
             {
-              img: '/images/yes2.png',
-              full: '/images/big2.png'
+              img: '/images/Khephren-launchpad-launch-update.jpg',
+              full: '/images/Khephren-launchpad-launch-update.jpg'
             },
             {
-              img: '/images/yes3.png',
-              full: '/images/big3.png'
+              img: '/images/OKC-is-now-live-on-kprnPAD (1).jpg',
+              full: '/images/OKC-is-now-live-on-kprnPAD (1).jpg'
             },
             {
-              img: '/images/yes4.png',
-              full: '/images/big4.png'
+              img: '/images/Private-sale-launch (1).jpg',
+              full: '/images/Private-sale-launch (1).jpg'
             },
             {
-              img: '/images/yes5.png',
-              full: '/images/big5.png'
+              img: '/images/Twitter-Giveaway-Winners.jpg',
+              full: '/images/Twitter-Giveaway-Winners.jpg'
             },
           ]
         },
         {
           nav: 'Website',
+          tag: 0,
           images:[
             {
-              img: '/images/yes.png',
-              full: '/images/big1.png'
+              img: '/images/ABTI Web.png',
+              full: '/images/ABTI Web.png'
             },
             {
-              img: '/images/yes2.png',
-              full: '/images/big2.png'
+              img: '/images/E-kaon.png',
+              full: '/images/E-kaon.png'
             },
             {
-              img: '/images/yes3.png',
-              full: '/images/big3.png'
+              img: '/images/Mediation.png',
+              full: '/images/Mediation.png'
             },
             {
-              img: '/images/yes4.png',
-              full: '/images/big4.png'
+              img: '/images/own Restaurant resto design.png',
+              full: '/images/own Restaurant resto design.png'
             },
             {
-              img: '/images/yes5.png',
-              full: '/images/big5.png'
+              img: '/images/Ronach.png',
+              full: '/images/Ronach.png'
             },
           ]
         },
         {
-          nav: 'Animation',
+          nav: 'Mobile',
+          tag: 0,
           images:[
             {
-              img: '/images/yes.png',
-              full: '/images/big1.png'
-            },
-            {
-              img: '/images/yes2.png',
-              full: '/images/big2.png'
-            },
-            {
-              img: '/images/yes3.png',
-              full: '/images/big3.png'
-            },
-            {
-              img: '/images/yes4.png',
-              full: '/images/big4.png'
-            },
-            {
-              img: '/images/yes5.png',
-              full: '/images/big5.png'
-            },
+              img: '/images/2.png',
+              full: '/images/2.png'
+            }
           ]
         },
         {
           nav: 'Video Editing',
+          tag: 1,
           images:[
             {
-              img: '/images/yes.png',
-              full: '/images/big1.png'
+              img: '/images/10 Brocante video Ads.mp4',
+              full: '/images/10 Brocante video Ads.mp4'
             },
             {
-              img: '/images/yes2.png',
-              full: '/images/big12.png'
+              img: '/images/Alsyone _ Yezh Animation Reveal!.mp4',
+              full: '/images/Alsyone _ Yezh Animation Reveal!.mp4'
             },
             {
-              img: '/images/yes3.png',
-              full: '/images/big3.png'
+              img: '/images/update.mp4',
+              full: '/images/update.mp4'
             },
-            {
-              img: '/images/yes4.png',
-              full: '/images/big4.png'
-            },
-            {
-              img: '/images/yes5.png',
-              full: '/images/big5.png'
-            },
+            
           ]
         },
       ],
@@ -277,22 +260,30 @@ export default {
         {
           title: 'gmail',
           email: 'gvisionld@gmail.com',
-          icon: '/images/email.png'
+          icon: '/images/email_blue.svg',
+          links: 'https://mail.google.com/mail/u/0/#inbox?compose=new',
+          active: '/images/email.png',
         },
         {
           title: 'behance',
-          email: 'gvisionld@gmail.com',
-          icon: '/images/Be.png'
+          email: 'https://www.behance.net/gvisionld',
+          icon: '/images/Be.png',
+          links: 'https://www.behance.net/gvisionld',
+          active: '/images/behance_ac.svg'
         },
         {
           title: 'dribble',
-          email: 'gvisionld@gmail.com',
-          icon: '/images/dribble.png'
+          email: 'https://dribbble.com/Vision-LD',
+          icon: '/images/dribble.png',
+          links: 'https://dribbble.com/Vision-LD',
+          active: '/images/dribbble_ac.svg'
         },
         {
           title: 'fb',
-          email: 'gvisionld@gmail.com',
-          icon: '/images/fb.png'
+          email: '',
+          icon: '/images/fb.png',
+          links: '',
+          active: '/images/facebook_ac.svg'
         },
       ],
       showSocMed: false,

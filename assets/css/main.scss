@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 a{
@@ -83,6 +84,12 @@ a{
 }
 
 .outer-nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 5;
     .navigation{
         display: flex;
         justify-content: space-between;
@@ -91,11 +98,12 @@ a{
         .nav-items{
             display: flex;
             gap: 24px;
-            a{
+            .nav-item{
                 font-size: 19px;
                 color: #435060;
                 position: relative;
                 font-family: GOTHIC;
+                cursor: pointer;
                 &.active{
                     color: #B99F6E;
                     font-style: italic;
@@ -116,7 +124,7 @@ a{
             }
         }
         .talk-btn{
-            button{
+            a{
                 padding: 15px 35px;
                 color: #fff;
                 font-size: 19px;
@@ -127,26 +135,38 @@ a{
             }
         }
     }
+    &.active{
+        background-color: #E0E3EB;
+    }
 }
 
 .footer-wrapper{
     background-color: #435060;
+    position: relative;
+    z-index: 2;
+    background-image: url(~/static/images/gpbg.png);
+    background-repeat: no-repeat;
+    background-position: 564px bottom;
+    background-size: 50%;
     .container-hf{
-        padding: 80px 0;
+        padding: 80px 0 120px;
         display: flex;
         gap: 20px;
         .right-f{
+            width: 35%;
             img{
                 width: 80%;
             }
         }
         .left-f{
+            width: 60%;
             h2{
                 font-size: 68px;
                 margin-bottom: 60px;
                 color: #B99F6E;
                 font-family: FRAHV;
                 text-align: left;
+                text-shadow: #435060 2.5px 3px 0px, #B99F6E 3px 4px 0px;
             }
             .links-f{
                 display: grid;
@@ -170,6 +190,7 @@ a{
                         align-items: center;
                         justify-content: center;
                         width: 80%;
+                        cursor: pointer;
                     }
                 }
             }
@@ -180,8 +201,12 @@ a{
 
 .about-section{
     background-color: #E8E8E8;
-    padding: 120px 0;
+    padding: 120px 0 200px;
     position: relative;
+    background-image: url(~/static/images/aboutbg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 50%;
    .container{
         h2{
             text-shadow: #E8E8E8 2.5px 3px 0px, #B99F6E 3px 4px 0px;
@@ -202,20 +227,6 @@ a{
                 }
             }
         }
-   }
-   &::after{
-    content: '';
-    font-size: 80px;
-    font-family: FRAHV;
-    text-align: center;
-    background: #FFFAFA;
-    background: linear-gradient(to top, #FFFAFA 23%, transparent 97%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
    }
 }
 
@@ -291,8 +302,12 @@ a{
 }
 
 .works-section{
-    padding: 120px 0;
+    padding: 120px 0 200px;
     background-color: #E8E8E8;
+    background-image: url(~/static/images/workbg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 45%;
     .container{
         h2{
            color: #435060; 
@@ -448,4 +463,8 @@ a{
             }
         }
     }
+}
+
+.per-section{
+    scroll-margin-top: 80px;
 }

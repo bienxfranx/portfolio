@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-wrapper">
+    <footer class="footer-wrapper per-section" id="Contact">
         <div class="container-hf">
             <div class="right-f">
                 <img src="/images/footerR.png" alt="">
@@ -26,13 +26,11 @@
                         Graphix Vision - LD<br/>
                         +63 975 644 6261
                     </p>
-                    <button class="link send-msg-btn">
+                    <a class="link send-msg-btn" href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">
                         SEND MESSAGE
-                    </button>
+                    </a>
                 </div>
-                <div class="f-bottom-img">
-                    <img src="/images/Graphix vision - ld.png'" alt="">
-                </div>
+                
             </div>
         </div>
     </footer>
