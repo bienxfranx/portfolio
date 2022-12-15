@@ -103,19 +103,25 @@
         </div>
         <div class="tab-info" >
           <div class="proj-list" v-for="(tab, i) in tabs" :key="i" :class="isActive == i ? 'active':''">
-            <div v-for="(img, i) in tab.images" :key="i">
-              <img :src="img.img" alt="" @click="modal(img)" v-if="img.tag == 0">
-              <iframe :src="img.img" frameborder="0" v-if="img.tag == 1"></iframe>
+            <div v-for="(img, i) in tab.images" :key="i" class="img-grids">
+              <img :src="img.img" alt="" @click="modal(tab)" v-if="tab.tag == '0'">
+              <video width="360" height="360" controls muted v-else @click="modal(tab)">
+                <source :src="img.img" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <modal name="popup" width="1200px" height="600px" :adaptive="true">
+    <!-- <modal name="popup" width="1200px" height="90%" :adaptive="true" :maxHeight="auto" class="mpop-img">
        <div class="popup-img">
-        <img :src="popImg.full">
+        
+        <img :src="popImg.images.img" v-if="popImg.tag == 0">
+        <video width="1200px" height="100%" v-else>
+          <source :src="popImg" type="video/mp4">
+        </video>
        </div>
-    </modal>
+    </modal> -->
   </div>
 </template>
 
@@ -148,7 +154,7 @@ export default {
       tabs:[
         {
           nav: 'Logo',
-          tag: 0,
+          tag: '0',
           images:[
             {
               img: '/images/yes.png',
@@ -156,11 +162,11 @@ export default {
             },
             {
               img: '/images/yes2.png',
-              full: '/images/big2.png'
+              full: '/images/big3.png'
             },
             {
               img: '/images/yes3.png',
-              full: '/images/big3.png'
+              full: '/images/big2.png'
             },
             {
               img: '/images/yes4.png',
@@ -174,7 +180,7 @@ export default {
         },
         {
           nav: 'Poster/Banner',
-          tag: 0,
+          tag: '0',
           images:[
             {
               img: '/images/Introducing-Khephren-staking-platform.jpg',
@@ -200,7 +206,7 @@ export default {
         },
         {
           nav: 'Website',
-          tag: 0,
+          tag: '0',
           images:[
             {
               img: '/images/ABTI Web.png',
@@ -211,8 +217,8 @@ export default {
               full: '/images/E-kaon.png'
             },
             {
-              img: '/images/Mediation.png',
-              full: '/images/Mediation.png'
+              img: '/images/Mediation.jpg',
+              full: '/images/Mediation.jpg'
             },
             {
               img: '/images/own Restaurant resto design.png',
@@ -226,7 +232,7 @@ export default {
         },
         {
           nav: 'Mobile',
-          tag: 0,
+          tag: '0',
           images:[
             {
               img: '/images/2.png',
@@ -236,7 +242,7 @@ export default {
         },
         {
           nav: 'Video Editing',
-          tag: 1,
+          tag: '1',
           images:[
             {
               img: '/images/10 Brocante video Ads.mp4',
@@ -296,6 +302,7 @@ export default {
     },
     modal(val){
       this.popImg = val
+      console.log(this.popImg)
       this.$modal.show('popup')
     },
     showingSocMed(val){
