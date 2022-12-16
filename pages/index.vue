@@ -13,8 +13,8 @@
           <div class="social-contact">
             <div class="sc-links">
               <div class="social-wrapper" v-for="(icon, i) in socialLinks" :key="i" @mouseenter="showingSocMed(i)">
-                <img :src="icon.icon" :alt="icon.title" class="icon">
-                <a v-if="icon.links" href="#" class="emails" target="_blank" :class="isSocMed == i ? 'active' : ''">{{icon.email}}</a>
+                <img :src="icon.links && isSocMed == i ? icon.active : icon.icon" :alt="icon.title" class="icon">
+                <a v-if="icon.links" :href="icon.links" class="emails" target="_blank" :class="isSocMed == i ? 'active' : ''">{{icon.email}}</a>
               </div>
             </div>
           </div>
@@ -104,8 +104,8 @@
         <div class="tab-info" >
           <div class="proj-list" v-for="(tab, i) in tabs" :key="i" :class="isActive == i ? 'active':''">
             <div v-for="(img, i) in tab.images" :key="i" class="img-grids">
-              <img :src="img.img" alt="" @click="modal(tab)" v-if="tab.tag == '0'">
-              <video width="360" height="360" controls muted v-else @click="modal(tab)">
+              <img :src="img.img" alt="" @click="modal(img.img , 'img')" v-if="tab.tag == '0'">
+              <video width="360" height="360" muted v-else @click="modal(img.img , 'vid')">
                 <source :src="img.img" type="video/mp4">
               </video>
             </div>
@@ -113,15 +113,14 @@
         </div>
       </div>
     </div>
-    <!-- <modal name="popup" width="1200px" height="90%" :adaptive="true" :maxHeight="auto" class="mpop-img">
+    <modal name="popup" width="1200px" height="90%" :adaptive="true" :maxHeight="auto" class="mpop-img">
        <div class="popup-img">
-        
-        <img :src="popImg.images.img" v-if="popImg.tag == 0">
-        <video width="1200px" height="100%" v-else>
+        <img :src="popImg" v-if="types == 'img'">
+        <video width="1200px" height="100%" controls v-else>
           <source :src="popImg" type="video/mp4">
         </video>
        </div>
-    </modal> -->
+    </modal>
   </div>
 </template>
 
@@ -294,15 +293,17 @@ export default {
       ],
       showSocMed: false,
       isSocMed: '',
+      types:'',
     }
   },
   methods:{
     openTab(val){
       this.isActive = val
     },
-    modal(val){
+    modal(val, type){
+      this.types = type
       this.popImg = val
-      console.log(this.popImg)
+      console.log(this.types)
       this.$modal.show('popup')
     },
     showingSocMed(val){
