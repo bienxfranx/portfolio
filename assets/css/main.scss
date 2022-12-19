@@ -390,9 +390,10 @@ a{
     .container{
         height: 100%;
         .left-intro-con{
-            background-image: url(~/static/images/photo.png);
+            background-image: url(~/static/images/bgimgCircle.png);
             background-repeat: no-repeat;
-            background-position: 624px 41px;
+            // background-position: 624px 41px;
+            background-position: right 165px;
             background-size: 592px;
             display: flex;
             justify-content: center;
